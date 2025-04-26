@@ -12,3 +12,55 @@ body {
   display: flex;
   justify-content: center;
 }
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 352px;
+}
+
+header>h3 {
+  margin-bottom: 0px;
+  font-weight: 500;
+}
+
+header>p {
+  margin-top: 2px;
+  color: #8E8E8E;
+}
+
+div.game-status-won {
+  background-color: #10A95B;
+  display: flex;
+  padding: 0;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 4px;
+}
+
+div.game-status-won>h3 {
+  margin: 5px;
+}
+
+div.game-status-won>p {
+  margin: 2px;
+}
+
+div.all-chips {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
+  width: 352px;
+  justify-content: center;
+}
+
+div.all-chips>p {
+  justify-content: center;
+  margin: 1px;
+  padding: 4.5px;
+  border-radius: 3px;
+  font-weight: 700;
+  font-size: 12px;
+}
