@@ -29,10 +29,19 @@ export default function AssemblyEndgame() {
       isWrong={(guessedLetters.includes(letter) && !currentWord.toUpperCase().includes(letter))}
     />
   ))
+
   //Letters in the current Word
-  const allLetters = [...currentWord].map(letter => (
-    <Letter letter={letter.toUpperCase()} key={nanoid()} />
-  ))
+  const wordDisplay = [...currentWord].map(letter => {
+    //Add logic to show letter in word only when correctly guessed. 
+    return (
+      <Letter
+        letter={letter.toUpperCase()}
+        key={nanoid()}
+        guessedLetters = {guessedLetters}
+      />
+    )
+  }
+  )
   const gameStatus = 'won'
   //Create coding language chips using external json data
   const chips = languages.map(language => (
@@ -52,7 +61,7 @@ export default function AssemblyEndgame() {
         {chips}
       </div>
       <section className="letters-display">
-        {allLetters}
+        {wordDisplay}
       </section>
       <section className="keyboard">
         {keyboard}
@@ -60,6 +69,5 @@ export default function AssemblyEndgame() {
       <button className="new-game">New Game</button>
     </main>
   )
-
 
 }

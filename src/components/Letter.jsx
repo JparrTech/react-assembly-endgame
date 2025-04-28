@@ -1,8 +1,9 @@
-export default function Letter({ letter }) {
 
+export default function Letter({ letter, guessedLetters }) {
+    const displayLetter = guessedLetters.includes(letter)
     return (
         <span className="letter-background">
-            <p className="letter">{letter}</p>
+            {displayLetter? <p className='letter'>{letter}</p>: null}
         </span>
     )
 

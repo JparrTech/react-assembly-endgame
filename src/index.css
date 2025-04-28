@@ -96,6 +96,7 @@ span.letter-background {
 }
 
 p.letter {
+  /* Will be the color of the background by default to hide it from player. */
   color: #F9F4DA;
   font-size: 18px;
   font-weight: 700;
