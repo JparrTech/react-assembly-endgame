@@ -32,6 +32,8 @@ Code your way to victory in this high-stakes twist on classic word games. In Ass
 
 `npm install`
 
+` npm install --save clsx ` - For conditional className construction.
+
 3. Start the development server:
 ˝
 `npm run dev`

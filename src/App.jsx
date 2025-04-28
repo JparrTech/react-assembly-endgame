@@ -12,14 +12,24 @@ export default function AssemblyEndgame() {
   const [guessedLetters, setGuessedLetters] = React.useState([])
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-  function  handleKeyboardButtonClick(letter) {
-    setGuessedLetters([...guessedLetters, letter])
+  function handleKeyboardButtonClick(letter) {
+    //add to our letter array state, and avoid duplicate entries. 
+    if (!guessedLetters.includes(letter)) {
+      setGuessedLetters([...guessedLetters, letter])
+    }
   }
   console.log(`${guessedLetters} are in the list`)
-
+  //Keyboard button components. 
   const keyboard = [...alphabet].map(letter => (
-    <KeyboardButton letter={letter} key={nanoid()} selectButton = {handleKeyboardButtonClick}/>
+    <KeyboardButton
+      letter={letter}
+      key={nanoid()}
+      selectButton={handleKeyboardButtonClick}
+      isCorrect={(guessedLetters.includes(letter) && currentWord.toUpperCase().includes(letter))}
+      isWrong={(guessedLetters.includes(letter) && !currentWord.toUpperCase().includes(letter))}
+    />
   ))
+  //Letters in the current Word
   const allLetters = [...currentWord].map(letter => (
     <Letter letter={letter.toUpperCase()} key={nanoid()} />
   ))

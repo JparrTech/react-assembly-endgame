@@ -33,6 +33,7 @@ header {
 header>h3 {
   margin-bottom: 0px;
   font-weight: 500;
+  margin-top: -2px;
 }
 
 header>p {
@@ -144,4 +145,12 @@ button.new-game {
   padding: 6px 12px;
   width: 228px;
   justify-content: center;
+}
+
+button.correct-guess {
+  background: #10A95B;
+}
+
+button.wrong-guess {
+  background: #EC5D49;
 }
