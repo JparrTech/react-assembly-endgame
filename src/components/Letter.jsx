@@ -6,6 +6,4 @@ export default function Letter({ letter, guessedLetters }) {
             {displayLetter? <p className='letter'>{letter}</p>: null}
         </span>
     )
-
-
 }

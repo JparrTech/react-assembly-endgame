@@ -8,8 +8,21 @@ import { nanoid } from 'nanoid'
 import { languages } from '../languages.js'
 
 export default function AssemblyEndgame() {
+  // State Values
   const [currentWord, setCurrentWord] = React.useState("react")
   const [guessedLetters, setGuessedLetters] = React.useState([])
+
+  //Derived Values
+  //Find the num of incorrect guesses
+  let wrongGuesses = 0
+  guessedLetters.forEach(letter => {
+    if(!currentWord.toUpperCase().includes(letter)){
+      wrongGuesses++
+    }
+  });
+  console.log(`${wrongGuesses} wrong guesses`)
+
+  //Static Values
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
   function handleKeyboardButtonClick(letter) {
