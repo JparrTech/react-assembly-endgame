@@ -14,13 +14,13 @@ export default function AssemblyEndgame() {
 
   //Derived Values
   //Find the num of incorrect guesses
-  let wrongGuesses = 0
+  let wrongGuessCount = 0
   guessedLetters.forEach(letter => {
-    if(!currentWord.toUpperCase().includes(letter)){
-      wrongGuesses++
+    if (!currentWord.toUpperCase().includes(letter)) {
+      wrongGuessCount++
     }
   });
-  console.log(`${wrongGuesses} wrong guesses`)
+  console.log(`${wrongGuessCount} wrong guesses`)
 
   //Static Values
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -45,26 +45,38 @@ export default function AssemblyEndgame() {
 
   //Letters in the current Word
   const wordDisplay = [...currentWord].map(letter => {
-    //Add logic to show letter in word only when correctly guessed. 
     return (
       <Letter
         letter={letter.toUpperCase()}
         key={nanoid()}
-        guessedLetters = {guessedLetters}
+        guessedLetters={guessedLetters}
       />
     )
   }
   )
   const gameStatus = 'won'
-  //Create coding language chips using external json data
-  const chips = languages.map(language => (
-    <Chip
-      name={language.name}
-      backgroundColor={language.backgroundColor}
-      color={language.color}
-      key={language.name}
-    />
-  ))
+  //Create coding language chips using external json data, add the isEliminated classname for each wrong guess
+  const chips = languages.map((language, index) => {
+    let isEliminated = false
+    if (wrongGuessCount > index) {
+      console.log("Language Destroyed")
+      isEliminated = true
+    }
+    return (
+
+      <Chip
+        name={language.name}
+        backgroundColor={language.backgroundColor}
+        color={language.color}
+        key={language.name}
+        isEliminated={isEliminated}
+      />
+    )
+
+  })
+
+
+
 
   return (
     <main>

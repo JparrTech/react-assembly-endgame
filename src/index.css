@@ -69,13 +69,28 @@ div.all-chips {
   width: 100%;
   justify-content: center;
 }
+/* Lost overlay for languages eliminated */
+p.chip.lost::before {
+  content: "💀";
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  font-size: 0.85rem;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+}
 
-div.all-chips>p {
+p.chip {
   margin: 1px;
   padding: 4.5px;
   border-radius: 3px;
   font-weight: 700;
   font-size: 12px;
+  position: relative;
 }
 
 section.letters-display {
